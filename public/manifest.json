@@ -1,0 +1,27 @@
+{
+  "name": "Help Smart - Assistência Técnica",
+  "short_name": "Help Smart",
+  "description": "Sistema de vendas e ordens de serviço offline-first",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#3E3F93",
+  "theme_color": "#3E3F93",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "/lovable-uploads/befabe7e-2681-4b08-abd2-02734a911a8f.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/lovable-uploads/befabe7e-2681-4b08-abd2-02734a911a8f.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["business", "productivity", "utilities"],
+  "lang": "pt-BR",
+  "prefer_related_applications": false
+}
