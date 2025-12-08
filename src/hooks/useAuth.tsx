@@ -1,13 +1,11 @@
 import { useEffect, useState } from 'react';
 import { User, Session } from '@supabase/supabase-js';
 import { supabase } from '@/integrations/supabase/client';
-import { useNavigate } from 'react-router-dom';
 
 export const useAuth = () => {
   const [user, setUser] = useState<User | null>(null);
   const [session, setSession] = useState<Session | null>(null);
   const [loading, setLoading] = useState(true);
-  const navigate = useNavigate();
 
   useEffect(() => {
     // Set up auth state listener FIRST
@@ -17,10 +15,7 @@ export const useAuth = () => {
         setUser(session?.user ?? null);
         setLoading(false);
 
-        // Redirect to auth page if user logs out
-        if (event === 'SIGNED_OUT') {
-          navigate('/auth');
-        }
+        // When the user logs out, keep them in the current experience without redirecting
       }
     );
 
@@ -32,7 +27,7 @@ export const useAuth = () => {
     });
 
     return () => subscription.unsubscribe();
-  }, [navigate]);
+  }, []);
 
   const signOut = async () => {
     await supabase.auth.signOut();
