@@ -1,7 +1,8 @@
-// Help Smart - Storage Service with Demo Data
+// Storage Service with Demo Data
 
 import { CashSession, Transaction, TransactionInput, ServiceOrder, ServiceOrderInput, StoreSettings, ReceiptConfig } from '@/types';
 import { format, subDays, addHours } from 'date-fns';
+import { defaultReceiptConfig, defaultStoreSettings, storagePrefix } from '@/config/defaults';
 
 interface StorageProvider {
   get<T>(key: string): T | null;
@@ -44,6 +45,10 @@ export class StorageService {
   private constructor() {
     this.provider = new LocalStorageProvider();
     this.initializeDemoData();
+  }
+
+  private getKey(name: string): string {
+    return `${storagePrefix}_${name}`;
   }
 
   static getInstance(): StorageService {
@@ -93,10 +98,10 @@ export class StorageService {
         const transactionTime = addHours(date, 9 + j * 3);
         
         const products = [
-          'Capa Samsung A54', 'Carregador Turbo USB-C', 'Película iPhone 15',
+          'Acessório de celular', 'Carregador USB-C', 'Película de proteção',
           'Fone Bluetooth', 'Cabo Lightning', 'Película Hydrogel',
-          'Capa Silicone Transparente', 'Carregador Veicular',
-          'Suporte Celular Mesa', 'Cabo USB-C'
+          'Capa silicone', 'Carregador veicular',
+          'Suporte para celular', 'Cabo USB-C'
         ];
         
         const types: Array<'venda' | 'entrada' | 'saida' | 'despesa'> = ['venda', 'venda', 'venda', 'entrada', 'despesa'];
@@ -126,9 +131,9 @@ export class StorageService {
     const demoOrders: ServiceOrder[] = [
       {
         id: 'os-001',
-        customerName: 'João Silva',
-        customerPhone: '(11) 99999-1234',
-        description: 'Troca de tela iPhone 12',
+        customerName: 'Cliente 1',
+        customerPhone: '(00) 00000-0000',
+        description: 'Troca de tela',
         value: 280,
         paymentMethod: 'pix',
         status: 'concluida',
@@ -138,9 +143,9 @@ export class StorageService {
       },
       {
         id: 'os-002',
-        customerName: 'Maria Santos',
-        customerPhone: '(11) 88888-5678',
-        description: 'Reparo carregamento Samsung A32',
+        customerName: 'Cliente 2',
+        customerPhone: '(00) 00000-0000',
+        description: 'Reparo de carregamento',
         value: 120,
         paymentMethod: 'dinheiro',
         status: 'aberta',
@@ -149,9 +154,9 @@ export class StorageService {
       },
       {
         id: 'os-003',
-        customerName: 'Pedro Oliveira',
-        customerPhone: '(11) 77777-9012',
-        description: 'Formatação notebook',
+        customerName: 'Cliente 3',
+        customerPhone: '(00) 00000-0000',
+        description: 'Formatação de notebook',
         value: 80,
         paymentMethod: 'cartao_debito',
         status: 'concluida',
@@ -160,9 +165,9 @@ export class StorageService {
       },
       {
         id: 'os-004',
-        customerName: 'Ana Costa',
-        customerPhone: '(11) 66666-3456',
-        description: 'Limpeza interna PlayStation 4',
+        customerName: 'Cliente 4',
+        customerPhone: '(00) 00000-0000',
+        description: 'Limpeza interna de console',
         value: 60,
         paymentMethod: 'pix',
         status: 'cancelada',
@@ -171,9 +176,9 @@ export class StorageService {
       },
       {
         id: 'os-005',
-        customerName: 'Carlos Ferreira',
-        customerPhone: '(11) 55555-7890',
-        description: 'Instalação película + capa iPhone 15 Pro',
+        customerName: 'Cliente 5',
+        customerPhone: '(00) 00000-0000',
+        description: 'Instalação de película',
         value: 45,
         paymentMethod: 'cartao_credito',
         status: 'concluida',
@@ -184,37 +189,29 @@ export class StorageService {
 
     // Demo store settings
     const demoSettings: StoreSettings = {
-      storeName: 'Help Smart Assistência',
-      storePhone: '(11) 3333-4444',
-      paperWidth: 80,
-      currency: 'BRL',
-      theme: 'light',
-      autoSuggestion: true
+      ...defaultStoreSettings,
+      storeName: defaultStoreSettings.storeName || 'Sua loja',
+      storePhone: defaultStoreSettings.storePhone || '',
     };
 
     // Demo receipt config
     const demoReceiptConfig: ReceiptConfig = {
-      nomeLoja: 'Help Smart Assistência',
-      telefoneLoja: '(11) 3333-4444',
-      cnpjLoja: '57.550.258/0001-89',
-      instagramLoja: 'helpsmart',
-      enderecoLoja: 'Rua das Flores, 123 - Centro',
-      mensagemAgradecimento: 'Obrigado pela preferência!',
-      politicaGarantia: 'Produtos com defeito devem ser apresentados com nota fiscal e embalagem original no prazo de 90 dias. Serviços possuem garantia de 30 dias.',
-      larguraBobina: 80
+      ...defaultReceiptConfig,
+      nomeLoja: defaultReceiptConfig.nomeLoja || demoSettings.storeName,
+      telefoneLoja: defaultReceiptConfig.telefoneLoja || demoSettings.storePhone,
     };
 
     // Save demo data
-    this.provider.set('help_smart_sessions', [demoSession]);
-    this.provider.set('help_smart_transactions', demoTransactions);
-    this.provider.set('help_smart_orders', demoOrders);
-    this.provider.set('help_smart_settings', demoSettings);
-    this.provider.set('help_smart_receipt_config', demoReceiptConfig);
+    this.provider.set(this.getKey('sessions'), [demoSession]);
+    this.provider.set(this.getKey('transactions'), demoTransactions);
+    this.provider.set(this.getKey('orders'), demoOrders);
+    this.provider.set(this.getKey('settings'), demoSettings);
+    this.provider.set(this.getKey('receipt_config'), demoReceiptConfig);
   }
 
   // Cash Sessions
   getCashSessions(): CashSession[] {
-    return this.provider.get<CashSession[]>('help_smart_sessions') || [];
+    return this.provider.get<CashSession[]>(this.getKey('sessions')) || [];
   }
 
   saveCashSession(session: CashSession): void {
@@ -227,7 +224,7 @@ export class StorageService {
       sessions.push(session);
     }
     
-    this.provider.set('help_smart_sessions', sessions);
+    this.provider.set(this.getKey('sessions'), sessions);
   }
 
   getCurrentSession(): CashSession | null {
@@ -237,7 +234,7 @@ export class StorageService {
 
   // Transactions
   getTransactions(): Transaction[] {
-    return this.provider.get<Transaction[]>('help_smart_transactions') || [];
+    return this.provider.get<Transaction[]>(this.getKey('transactions')) || [];
   }
 
   saveTransaction(transaction: TransactionInput): void {
@@ -255,18 +252,18 @@ export class StorageService {
       transactions.push(normalized);
     }
 
-    this.provider.set('help_smart_transactions', transactions);
+    this.provider.set(this.getKey('transactions'), transactions);
   }
 
   deleteTransaction(id: string): void {
     const transactions = this.getTransactions();
     const filtered = transactions.filter(t => t.id !== id);
-    this.provider.set('help_smart_transactions', filtered);
+    this.provider.set(this.getKey('transactions'), filtered);
   }
 
   // Service Orders
   getServiceOrders(): ServiceOrder[] {
-    return this.provider.get<ServiceOrder[]>('help_smart_orders') || [];
+    return this.provider.get<ServiceOrder[]>(this.getKey('orders')) || [];
   }
 
   saveServiceOrder(order: ServiceOrderInput): void {
@@ -285,47 +282,31 @@ export class StorageService {
       orders.push(normalized);
     }
 
-    this.provider.set('help_smart_orders', orders);
+    this.provider.set(this.getKey('orders'), orders);
   }
 
   deleteServiceOrder(id: string): void {
     const orders = this.getServiceOrders();
     const filtered = orders.filter(o => o.id !== id);
-    this.provider.set('help_smart_orders', filtered);
+    this.provider.set(this.getKey('orders'), filtered);
   }
 
   // Settings
   getSettings(): StoreSettings {
-    return this.provider.get<StoreSettings>('help_smart_settings') || {
-      storeName: 'Help Smart',
-      storePhone: '',
-      paperWidth: 80,
-      currency: 'BRL',
-      theme: 'light',
-      autoSuggestion: true
-    };
+    return this.provider.get<StoreSettings>(this.getKey('settings')) || defaultStoreSettings;
   }
 
   saveSettings(settings: StoreSettings): void {
-    this.provider.set('help_smart_settings', settings);
+    this.provider.set(this.getKey('settings'), settings);
   }
 
   // Receipt Config
   getReceiptConfig(): ReceiptConfig {
-    return this.provider.get<ReceiptConfig>('help_smart_receipt_config') || {
-      nomeLoja: 'Help Smart',
-      telefoneLoja: '',
-      cnpjLoja: '',
-      instagramLoja: 'helpsmart',
-      enderecoLoja: '',
-      mensagemAgradecimento: 'Obrigado pela preferência!',
-      politicaGarantia: 'Produtos com defeito devem ser apresentados com nota fiscal e embalagem original no prazo de 90 dias.',
-      larguraBobina: 80
-    };
+    return this.provider.get<ReceiptConfig>(this.getKey('receipt_config')) || defaultReceiptConfig;
   }
 
   saveReceiptConfig(config: ReceiptConfig): void {
-    this.provider.set('help_smart_receipt_config', config);
+    this.provider.set(this.getKey('receipt_config'), config);
   }
 
   // Clear all data
