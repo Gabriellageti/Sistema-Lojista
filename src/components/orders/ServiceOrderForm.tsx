@@ -1,4 +1,4 @@
-// Help Smart - Service Order Form Component
+// Sistema Lojista - Service Order Form Component
 
 import { useState, useEffect } from 'react';
 import { X, Wrench, Phone, User, Printer } from 'lucide-react';

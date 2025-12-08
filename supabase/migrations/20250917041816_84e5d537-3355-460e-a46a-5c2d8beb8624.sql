@@ -1,4 +1,4 @@
--- Create all tables for Help Smart application
+-- Create all tables for Sistema Lojista application
 
 -- Create cash_sessions table
 CREATE TABLE public.cash_sessions (
@@ -65,7 +65,7 @@ CREATE TABLE public.service_orders (
 -- Create store_settings table
 CREATE TABLE public.store_settings (
   id UUID NOT NULL DEFAULT gen_random_uuid() PRIMARY KEY,
-  store_name TEXT NOT NULL DEFAULT 'Help Smart',
+  store_name TEXT NOT NULL DEFAULT 'Sistema Lojista',
   store_phone TEXT,
   paper_width INTEGER NOT NULL DEFAULT 80 CHECK (paper_width IN (58, 80, 85)),
   currency TEXT NOT NULL DEFAULT 'BRL',
@@ -78,7 +78,7 @@ CREATE TABLE public.store_settings (
 -- Create receipt_config table
 CREATE TABLE public.receipt_config (
   id UUID NOT NULL DEFAULT gen_random_uuid() PRIMARY KEY,
-  nome_loja TEXT NOT NULL DEFAULT 'Help Smart',
+  nome_loja TEXT NOT NULL DEFAULT 'Sistema Lojista',
   telefone_loja TEXT,
   instagram_loja TEXT,
   endereco_loja TEXT,
@@ -149,7 +149,7 @@ CREATE TRIGGER update_receipt_config_updated_at
 
 -- Insert default settings
 INSERT INTO public.store_settings (store_name, paper_width, currency, theme, auto_suggestion)
-VALUES ('Help Smart Assistência', 80, 'BRL', 'light', true);
+VALUES ('Sistema Lojista Assistência', 80, 'BRL', 'light', true);
 
 INSERT INTO public.receipt_config (nome_loja, largura_bobina, mensagem_agradecimento, politica_garantia)
-VALUES ('Help Smart Assistência', 80, 'Obrigado pela preferência!', 'Produtos com defeito devem ser apresentados com nota fiscal e embalagem original no prazo de 90 dias. Serviços possuem garantia de 30 dias.');
+VALUES ('Sistema Lojista Assistência', 80, 'Obrigado pela preferência!', 'Produtos com defeito devem ser apresentados com nota fiscal e embalagem original no prazo de 90 dias. Serviços possuem garantia de 30 dias.');

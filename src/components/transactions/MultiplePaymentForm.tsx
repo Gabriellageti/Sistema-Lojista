@@ -1,4 +1,4 @@
-// Help Smart - Multiple Payment Form Component
+// Sistema Lojista - Multiple Payment Form Component
 
 import { useState, useEffect } from 'react';
 import { Trash2, Plus } from 'lucide-react';

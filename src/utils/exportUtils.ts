@@ -76,8 +76,8 @@ export const exportToPDF = (
   
   // Header
   doc.setFontSize(18);
-  doc.setTextColor(62, 63, 147); // Help Smart primary color
-  doc.text('Help Smart - Relatório de Lançamentos', 14, 20);
+  doc.setTextColor(62, 63, 147); // Sistema Lojista primary color
+  doc.text('Sistema Lojista - Relatório de Lançamentos', 14, 20);
   
   doc.setFontSize(12);
   doc.setTextColor(0, 0, 0);

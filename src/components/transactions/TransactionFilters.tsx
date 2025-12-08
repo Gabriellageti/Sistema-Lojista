@@ -1,4 +1,4 @@
-// Help Smart - Transaction Filters Component
+// Sistema Lojista - Transaction Filters Component
 
 import { useState } from 'react';
 import { Search, Filter, Calendar, X } from 'lucide-react';

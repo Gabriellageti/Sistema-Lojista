@@ -1,4 +1,4 @@
-// Help Smart - Cash Closing Page
+// Sistema Lojista - Cash Closing Page
 
 import { useState, useEffect, useCallback } from 'react';
 import { Download, Printer, ArrowLeft, Calendar, DollarSign, CheckCircle } from 'lucide-react';
@@ -128,7 +128,7 @@ const CashClosing = () => {
   };
 
   const handlePrint = () => {
-    const storeName = (receiptConfig.nomeLoja || 'Help Smart').trim() || 'Help Smart';
+    const storeName = (receiptConfig.nomeLoja || 'Sistema Lojista').trim() || 'Sistema Lojista';
     const storePhone = receiptConfig.telefoneLoja ? receiptConfig.telefoneLoja.trim() : '';
     const storeAddress = receiptConfig.enderecoLoja
       ? receiptConfig.enderecoLoja

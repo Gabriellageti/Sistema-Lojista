@@ -1,4 +1,4 @@
-// Help Smart - Button Variants using Design System
+// Sistema Lojista - Button Variants using Design System
 
 import * as React from "react"
 import { Slot } from "@radix-ui/react-slot"
@@ -16,7 +16,7 @@ const buttonVariants = cva(
         outline: "border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        // Help Smart specific variants
+        // Sistema Lojista specific variants
         hero: "bg-gradient-hero text-white shadow-hs-primary hover:scale-105 transform font-semibold",
         success: "bg-emerald-500 text-white shadow-lg hover:bg-emerald-600",
         warning: "bg-amber-500 text-white shadow-lg hover:bg-amber-600",

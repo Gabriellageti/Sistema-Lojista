@@ -1,4 +1,4 @@
-// Help Smart - Analytics Service
+// Sistema Lojista - Analytics Service
 
 import { Transaction, ServiceOrder } from '@/types';
 import { storageService } from './StorageService';

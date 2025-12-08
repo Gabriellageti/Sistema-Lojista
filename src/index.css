@@ -3,11 +3,11 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Help Smart Design System - All colors MUST be HSL */
+/* Sistema Lojista Design System - All colors MUST be HSL */
 
 @layer base {
   :root {
-    /* Help Smart Brand Colors */
+    /* Sistema Lojista Brand Colors */
     --hs-primary: 240 44% 40%;        /* #3E3F93 - Headers/CTA */
     --hs-primary-foreground: 0 0% 100%; /* White text on primary */
     
@@ -17,7 +17,7 @@
     --hs-neutral-dark: 225 8% 20%;    /* #313236 - Text/Icons */
     --hs-neutral-light: 237 17% 80%;  /* #CBCCDD - Borders/Soft backgrounds */
     
-    /* Semantic tokens based on Help Smart colors */
+    /* Semantic tokens based on Sistema Lojista colors */
     --background: 0 0% 100%;          /* #FFFFFF - Main background */
     --foreground: 225 8% 20%;         /* Neutral dark for text */
 
@@ -27,10 +27,10 @@
     --popover: 0 0% 100%;
     --popover-foreground: 225 8% 20%;
 
-    --primary: 240 44% 40%;           /* Help Smart primary */
+    --primary: 240 44% 40%;           /* Sistema Lojista primary */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 44 89% 58%;          /* Help Smart secondary */
+    --secondary: 44 89% 58%;          /* Sistema Lojista secondary */
     --secondary-foreground: 240 44% 40%;
 
     --muted: 237 17% 95%;             /* Very light neutral */
@@ -48,7 +48,7 @@
 
     --radius: 0.75rem;                /* Rounded buttons */
 
-    /* Help Smart specific gradients */
+    /* Sistema Lojista specific gradients */
     --gradient-primary: linear-gradient(135deg, hsl(var(--hs-primary)), hsl(240 44% 50%));
     --gradient-secondary: linear-gradient(135deg, hsl(var(--hs-secondary)), hsl(44 89% 68%));
     --gradient-hero: linear-gradient(135deg, hsl(var(--hs-primary)) 0%, hsl(var(--hs-secondary)) 100%);
@@ -118,7 +118,7 @@
 }
 
 @layer components {
-  /* Help Smart specific component styles */
+  /* Sistema Lojista specific component styles */
   .hs-header {
     @apply bg-gradient-to-r from-primary/90 to-primary text-primary-foreground;
     box-shadow: var(--shadow-primary);

@@ -1,4 +1,4 @@
-// Help Smart - Top Descriptions Chart Component
+// Sistema Lojista - Top Descriptions Chart Component
 
 import { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';

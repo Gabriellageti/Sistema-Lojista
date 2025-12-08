@@ -1,4 +1,4 @@
-// Help Smart - Transaction List Component
+// Sistema Lojista - Transaction List Component
 
 import { Edit, Trash2, ShoppingCart, TrendingUp, TrendingDown, Minus, Printer } from 'lucide-react';
 import { Button } from '@/components/ui/button-variants';

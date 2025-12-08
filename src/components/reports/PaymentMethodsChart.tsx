@@ -1,4 +1,4 @@
-// Help Smart - Payment Methods Chart Component
+// Sistema Lojista - Payment Methods Chart Component
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button-variants';

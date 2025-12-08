@@ -1,4 +1,4 @@
-// Help Smart - Dashboard/Home Page
+// Sistema Lojista - Dashboard/Home Page
 
 import { useEffect, useMemo, useState } from 'react';
 import {
@@ -461,7 +461,7 @@ const Dashboard = () => {
     <div className="container mx-auto px-2 sm:px-4 py-4 sm:py-6 space-y-4 sm:space-y-6">
       {/* Welcome Section */}
       <div className="text-center space-y-2">
-        <h1 className="text-2xl sm:text-3xl font-bold text-primary">Bem-vindo ao Help Smart</h1>
+        <h1 className="text-2xl sm:text-3xl font-bold text-primary">Bem-vindo ao Sistema Lojista</h1>
         <p className="text-sm sm:text-base text-muted-foreground">
           Sistema de vendas e ordens de serviço
         </p>
