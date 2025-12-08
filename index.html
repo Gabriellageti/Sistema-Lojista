@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <title>Help Smart - Assistência Técnica</title>
+    <meta name="description" content="Sistema de vendas e ordens de serviço offline-first para assistência técnica" />
+    <meta name="author" content="Help Smart" />
+    <meta name="keywords" content="assistência técnica, vendas, ordens de serviço, PWA, offline" />
+
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#3E3F93" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Help Smart" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json" />
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="/lovable-uploads/befabe7e-2681-4b08-abd2-02734a911a8f.png" />
+    <link rel="apple-touch-icon" href="/lovable-uploads/befabe7e-2681-4b08-abd2-02734a911a8f.png" />
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Help Smart - Assistência Técnica" />
+    <meta property="og:description" content="Sistema de vendas e ordens de serviço offline-first" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/lovable-uploads/befabe7e-2681-4b08-abd2-02734a911a8f.png" />
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Help Smart - Assistência Técnica" />
+    <meta name="twitter:description" content="Sistema de vendas e ordens de serviço offline-first" />
+    <meta name="twitter:image" content="/lovable-uploads/befabe7e-2681-4b08-abd2-02734a911a8f.png" />
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    
+    <!-- Service Worker Registration -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then((registration) => {
+              console.log('Help Smart: SW registered successfully');
+            })
+            .catch((registrationError) => {
+              console.log('Help Smart: SW registration failed');
+            });
+        });
+      }
+    </script>
+  </body>
+</html>
