@@ -15,7 +15,6 @@ import Reports from "./pages/Reports";
 import Settings from "./pages/Settings";
 import CashClosing from "./pages/CashClosing";
 import Trash from "./pages/Trash";
-import Auth from "./pages/Auth";
 import NotFound from "./pages/NotFound";
 import TransactionsPreview from "./pages/dev/TransactionsPreview";
 import CreditSales from "./pages/CreditSales";
@@ -28,7 +27,6 @@ const App = () => (
       <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
         <TooltipProvider>
           <Routes>
-            <Route path="/auth" element={<Auth />} />
             {import.meta.env.DEV && (
               <Route path="/dev/transactions-preview" element={<TransactionsPreview />} />
             )}
