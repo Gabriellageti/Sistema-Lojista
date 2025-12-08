@@ -1,10 +1,10 @@
-// Help Smart - Service Worker for PWA and Offline Capabilities
+// __BRAND_SHORT_NAME__ - Service Worker for PWA and Offline Capabilities
 
-const CACHE_NAME = 'help-smart-v1.0.1';
+const CACHE_NAME = 'generic-app-v1.0.1';
 const urlsToCache = [
   '/',
   '/manifest.json',
-  '/lovable-uploads/befabe7e-2681-4b08-abd2-02734a911a8f.png'
+  '__BRAND_ICON_LARGE__'
 ];
 
 // Install event - cache essential files
@@ -12,11 +12,11 @@ self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then((cache) => {
-        console.log('Help Smart: Caching app shell');
+        console.log('__BRAND_SHORT_NAME__: Caching app shell');
         return cache.addAll(urlsToCache);
       })
       .catch((error) => {
-        console.log('Help Smart: Cache installation failed:', error);
+        console.log('__BRAND_SHORT_NAME__: Cache installation failed:', error);
       })
   );
   self.skipWaiting();
@@ -29,7 +29,7 @@ self.addEventListener('activate', (event) => {
       return Promise.all(
         cacheNames.map((cacheName) => {
           if (cacheName !== CACHE_NAME) {
-            console.log('Help Smart: Deleting old cache:', cacheName);
+            console.log('__BRAND_SHORT_NAME__: Deleting old cache:', cacheName);
             return caches.delete(cacheName);
           }
         })
@@ -83,7 +83,7 @@ self.addEventListener('fetch', (event) => {
 // Background sync for offline data
 self.addEventListener('sync', (event) => {
   if (event.tag === 'background-sync') {
-    console.log('Help Smart: Background sync triggered');
+    console.log('__BRAND_SHORT_NAME__: Background sync triggered');
     // Here you would sync data when back online
     // For MVP, we're only using localStorage
   }
@@ -95,8 +95,8 @@ self.addEventListener('push', (event) => {
     const data = event.data.json();
     const options = {
       body: data.body,
-      icon: '/lovable-uploads/befabe7e-2681-4b08-abd2-02734a911a8f.png',
-      badge: '/lovable-uploads/befabe7e-2681-4b08-abd2-02734a911a8f.png',
+      icon: '__BRAND_ICON_LARGE__',
+      badge: '__BRAND_ICON_LARGE__',
       vibrate: [100, 50, 100],
       data: {
         dateOfArrival: Date.now(),
