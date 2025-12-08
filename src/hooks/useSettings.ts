@@ -2,22 +2,13 @@ import { useState, useEffect } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { StoreSettings } from '@/types';
 import { useToast } from '@/hooks/use-toast';
+import { defaultStoreSettings } from '@/config/defaults';
 
 export const useSettings = () => {
   const [settings, setSettings] = useState<StoreSettings | null>(null);
   const [settingsId, setSettingsId] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const { toast } = useToast();
-
-  // Default settings
-  const defaultSettings: StoreSettings = {
-    storeName: 'Help Smart',
-    storePhone: '',
-    theme: 'light' as const,
-    currency: 'BRL',
-    paperWidth: 80 as const,
-    autoSuggestion: true,
-  };
 
   // Load settings
   const loadSettings = async () => {
@@ -43,11 +34,11 @@ export const useSettings = () => {
         setSettingsId(data.id);
       } else {
         // Create default settings if none exist
-        await saveSettings(defaultSettings);
+        await saveSettings(defaultStoreSettings);
       }
     } catch (error) {
       console.error('Error loading settings:', error);
-      setSettings(defaultSettings);
+      setSettings(defaultStoreSettings);
       toast({
         title: "Erro",
         description: "Erro ao carregar configurações, usando padrões",
@@ -108,14 +99,14 @@ export const useSettings = () => {
   };
 
   // Get settings
-  const getSettings = () => settings || defaultSettings;
+  const getSettings = () => settings || defaultStoreSettings;
 
   useEffect(() => {
     loadSettings();
   }, []);
 
   return {
-    settings: settings || defaultSettings,
+    settings: settings || defaultStoreSettings,
     loading,
     saveSettings,
     getSettings,
