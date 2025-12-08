@@ -1,4 +1,4 @@
-// Help Smart - Header Component
+// Sistema Lojista - Header Component
 
 import { useState } from 'react';
 import { Menu, Settings, Calculator, FileText, ShoppingCart, Wrench, Archive, LogOut, CreditCard } from 'lucide-react';
@@ -37,11 +37,11 @@ const Header = () => {
         <div className="flex items-center gap-3">
           <img 
             src="/lovable-uploads/befabe7e-2681-4b08-abd2-02734a911a8f.png" 
-            alt="Help Smart Logo" 
+            alt="Sistema Lojista Logo" 
             className="w-10 h-10 rounded-full bg-white/10 p-1"
           />
           <div>
-            <h1 className="text-lg font-bold">Help Smart</h1>
+            <h1 className="text-lg font-bold">Sistema Lojista</h1>
             <p className="text-xs opacity-90">Assistência Técnica</p>
           </div>
         </div>
@@ -92,11 +92,11 @@ const Header = () => {
               <div className="flex items-center gap-3 pb-4 border-b">
                 <img 
                   src="/lovable-uploads/befabe7e-2681-4b08-abd2-02734a911a8f.png" 
-                  alt="Help Smart Logo" 
+                  alt="Sistema Lojista Logo" 
                   className="w-12 h-12 rounded-full"
                 />
                 <div>
-                  <h2 className="font-bold text-lg">Help Smart</h2>
+                  <h2 className="font-bold text-lg">Sistema Lojista</h2>
                   <p className="text-sm text-muted-foreground">Assistência Técnica</p>
                 </div>
               </div>

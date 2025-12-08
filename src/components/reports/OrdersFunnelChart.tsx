@@ -1,4 +1,4 @@
-// Help Smart - Orders Funnel Chart Component
+// Sistema Lojista - Orders Funnel Chart Component
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button-variants';

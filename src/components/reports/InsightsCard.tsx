@@ -1,4 +1,4 @@
-// Help Smart - Insights Card Component
+// Sistema Lojista - Insights Card Component
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';

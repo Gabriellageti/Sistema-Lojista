@@ -1,4 +1,4 @@
-// Help Smart - Floating Action Buttons Component
+// Sistema Lojista - Floating Action Buttons Component
 
 import { useState } from 'react';
 import { ShoppingCart, Wrench, Plus, Trash2, CreditCard } from 'lucide-react';

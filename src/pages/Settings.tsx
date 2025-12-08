@@ -1,4 +1,4 @@
-// Help Smart - Settings Page
+// Sistema Lojista - Settings Page
 
 import { useState, useEffect } from 'react';
 import { Save, Settings as SettingsIcon, Trash2, Store, FileText, Eye, Printer } from 'lucide-react';
@@ -94,7 +94,7 @@ const Settings = () => {
       {/* Header */}
       <div>
         <h1 className="text-3xl font-bold text-primary">Configurações</h1>
-        <p className="text-muted-foreground">Personalize o Help Smart para seu negócio</p>
+        <p className="text-muted-foreground">Personalize o Sistema Lojista para seu negócio</p>
       </div>
 
       {/* Store Information */}

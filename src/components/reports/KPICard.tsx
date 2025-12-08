@@ -1,4 +1,4 @@
-// Help Smart - KPI Card Component
+// Sistema Lojista - KPI Card Component
 
 import { ReactNode } from 'react';
 import { Card, CardContent } from '@/components/ui/card';

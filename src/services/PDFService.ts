@@ -1,4 +1,4 @@
-// Help Smart - PDF Receipt Generation Service
+// Sistema Lojista - PDF Receipt Generation Service
 
 import { jsPDF } from 'jspdf';
 import autoTable, { applyPlugin, type CellInput, type UserOptions } from 'jspdf-autotable';

@@ -1,4 +1,4 @@
-// Help Smart - Transaction Summary Cards Component
+// Sistema Lojista - Transaction Summary Cards Component
 
 import { TrendingUp, TrendingDown, ArrowDownLeft, ShoppingCart } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';

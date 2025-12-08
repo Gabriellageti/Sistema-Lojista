@@ -1,4 +1,4 @@
-// Help Smart - Transaction Form Component
+// Sistema Lojista - Transaction Form Component
 
 import { useState, useEffect } from 'react';
 import { X, Calculator, PlusCircle, Trash2 } from 'lucide-react';

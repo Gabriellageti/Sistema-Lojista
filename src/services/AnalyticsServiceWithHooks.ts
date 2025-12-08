@@ -1,4 +1,4 @@
-// Help Smart - Analytics Service with Hooks
+// Sistema Lojista - Analytics Service with Hooks
 // New analytics service that uses hooks instead of localStorage
 
 import { startOfDay, endOfDay, addDays, subDays, format, parseISO } from 'date-fns';

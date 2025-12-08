@@ -1,4 +1,4 @@
-// Help Smart - Reports Page
+// Sistema Lojista - Reports Page
 
 import { useState, useEffect, useMemo } from 'react';
 import { Calendar, Download, TrendingUp, DollarSign, BarChart3, FileText } from 'lucide-react';
@@ -100,7 +100,7 @@ const Reports = () => {
     const { current } = reportData;
     
     const csvContent = [
-      ['Relatório Help Smart - Análise Executiva'],
+      ['Relatório Sistema Lojista - Análise Executiva'],
       [`Período: ${format(new Date(filters.startDate), 'dd/MM/yyyy', { locale: ptBR })} - ${format(new Date(filters.endDate), 'dd/MM/yyyy', { locale: ptBR })}`],
       [''],
       ['RESUMO FINANCEIRO'],

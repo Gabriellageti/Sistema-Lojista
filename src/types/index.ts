@@ -1,4 +1,4 @@
-// Help Smart - Type Definitions
+// Sistema Lojista - Type Definitions
 
 export interface CashSession {
   id?: string;

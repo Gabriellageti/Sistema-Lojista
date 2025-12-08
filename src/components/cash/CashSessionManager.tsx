@@ -1,4 +1,4 @@
-// Help Smart - Cash Session Manager
+// Sistema Lojista - Cash Session Manager
 
 import { useState, useEffect } from 'react';
 import { Calendar, DollarSign, Clock, Lock } from 'lucide-react';

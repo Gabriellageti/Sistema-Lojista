@@ -1,4 +1,4 @@
-// Help Smart - Cash Closures Page
+// Sistema Lojista - Cash Closures Page
 
 import { useState, useEffect } from 'react';
 import { Calendar, DollarSign, TrendingUp, FileText, ChevronRight } from 'lucide-react';

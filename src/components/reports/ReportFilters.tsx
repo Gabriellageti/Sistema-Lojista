@@ -1,4 +1,4 @@
-// Help Smart - Report Filters Component
+// Sistema Lojista - Report Filters Component
 
 import { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';

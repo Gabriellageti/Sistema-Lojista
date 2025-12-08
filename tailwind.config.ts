@@ -56,7 +56,7 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				// Help Smart brand colors
+				// Sistema Lojista brand colors
 				'hs-primary': 'hsl(var(--hs-primary))',
 				'hs-secondary': 'hsl(var(--hs-secondary))',
 				'hs-neutral-dark': 'hsl(var(--hs-neutral-dark))',

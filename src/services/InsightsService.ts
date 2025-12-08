@@ -1,4 +1,4 @@
-// Help Smart - Insights Service
+// Sistema Lojista - Insights Service
 
 import { AnalyticsReport } from './AnalyticsServiceWithHooks';
 

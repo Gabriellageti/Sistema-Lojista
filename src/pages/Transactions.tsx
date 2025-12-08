@@ -1,4 +1,4 @@
-// Help Smart - Transactions Page
+// Sistema Lojista - Transactions Page
 
 import { useState, useEffect, useCallback, useMemo } from 'react';
 import { Plus, Download, Search } from 'lucide-react';
@@ -174,7 +174,7 @@ const Transactions = () => {
     });
   };
 
-  const storeName = (receiptConfig.nomeLoja || 'Help Smart').trim() || 'Help Smart';
+  const storeName = (receiptConfig.nomeLoja || 'Sistema Lojista').trim() || 'Sistema Lojista';
   const storePhone = receiptConfig.telefoneLoja?.trim();
   const storeInstagram = receiptConfig.instagramLoja?.trim();
   const storeAddressLines = receiptConfig.enderecoLoja

@@ -55,11 +55,11 @@ const Auth = () => {
           <div className="flex justify-center mb-4">
             <img 
               src="/lovable-uploads/befabe7e-2681-4b08-abd2-02734a911a8f.png" 
-              alt="Help Smart Logo" 
+              alt="Sistema Lojista Logo" 
               className="w-24 h-24 rounded-full bg-white/10 p-2 shadow-lg"
             />
           </div>
-          <h1 className="text-4xl font-bold text-white mb-2">Help Smart</h1>
+          <h1 className="text-4xl font-bold text-white mb-2">Sistema Lojista</h1>
           <p className="text-white/90 text-lg">Assistência Técnica</p>
         </div>
 
