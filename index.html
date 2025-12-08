@@ -3,36 +3,36 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-    <title>Help Smart - Assistência Técnica</title>
-    <meta name="description" content="Sistema de vendas e ordens de serviço offline-first para assistência técnica" />
-    <meta name="author" content="Help Smart" />
-    <meta name="keywords" content="assistência técnica, vendas, ordens de serviço, PWA, offline" />
+    <title>__BRAND_NAME__</title>
+    <meta name="description" content="__BRAND_DESCRIPTION__" />
+    <meta name="author" content="__BRAND_AUTHOR__" />
+    <meta name="keywords" content="__BRAND_KEYWORDS__" />
 
     <!-- PWA Meta Tags -->
-    <meta name="theme-color" content="#3E3F93" />
+    <meta name="theme-color" content="__BRAND_THEME_COLOR__" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-    <meta name="apple-mobile-web-app-title" content="Help Smart" />
+    <meta name="apple-mobile-web-app-title" content="__BRAND_SHORT_NAME__" />
     <meta name="mobile-web-app-capable" content="yes" />
     
     <!-- PWA Manifest -->
     <link rel="manifest" href="/manifest.json" />
     
     <!-- Favicons -->
-    <link rel="icon" type="image/png" href="/lovable-uploads/befabe7e-2681-4b08-abd2-02734a911a8f.png" />
-    <link rel="apple-touch-icon" href="/lovable-uploads/befabe7e-2681-4b08-abd2-02734a911a8f.png" />
+    <link rel="icon" type="image/png" href="__BRAND_ICON_SMALL__" />
+    <link rel="apple-touch-icon" href="__BRAND_ICON_LARGE__" />
 
     <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Help Smart - Assistência Técnica" />
-    <meta property="og:description" content="Sistema de vendas e ordens de serviço offline-first" />
+    <meta property="og:title" content="__BRAND_NAME__" />
+    <meta property="og:description" content="__BRAND_DESCRIPTION__" />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="/lovable-uploads/befabe7e-2681-4b08-abd2-02734a911a8f.png" />
+    <meta property="og:image" content="__BRAND_ICON_LARGE__" />
 
     <!-- Twitter Meta Tags -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Help Smart - Assistência Técnica" />
-    <meta name="twitter:description" content="Sistema de vendas e ordens de serviço offline-first" />
-    <meta name="twitter:image" content="/lovable-uploads/befabe7e-2681-4b08-abd2-02734a911a8f.png" />
+    <meta name="twitter:title" content="__BRAND_NAME__" />
+    <meta name="twitter:description" content="__BRAND_DESCRIPTION__" />
+    <meta name="twitter:image" content="__BRAND_ICON_LARGE__" />
   </head>
 
   <body>
@@ -45,10 +45,10 @@
         window.addEventListener('load', () => {
           navigator.serviceWorker.register('/sw.js')
             .then((registration) => {
-              console.log('Help Smart: SW registered successfully');
+              console.log('__BRAND_SHORT_NAME__: SW registered successfully');
             })
             .catch((registrationError) => {
-              console.log('Help Smart: SW registration failed');
+              console.log('__BRAND_SHORT_NAME__: SW registration failed');
             });
         });
       }
