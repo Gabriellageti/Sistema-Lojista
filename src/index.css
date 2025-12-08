@@ -3,19 +3,19 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Help Smart Design System - All colors MUST be HSL */
+/* Branding Design System - All colors MUST be HSL */
 
 @layer base {
   :root {
-    /* Help Smart Brand Colors */
-    --hs-primary: 240 44% 40%;        /* #3E3F93 - Headers/CTA */
-    --hs-primary-foreground: 0 0% 100%; /* White text on primary */
-    
-    --hs-secondary: 44 89% 58%;       /* #EFB631 - Buttons/Highlights */
-    --hs-secondary-foreground: 240 44% 40%; /* Primary text on secondary */
-    
-    --hs-neutral-dark: 225 8% 20%;    /* #313236 - Text/Icons */
-    --hs-neutral-light: 237 17% 80%;  /* #CBCCDD - Borders/Soft backgrounds */
+    /* Brand Colors */
+    --brand-primary: 240 44% 40%;        /* Headers/CTA */
+    --brand-primary-foreground: 0 0% 100%; /* Foreground on primary */
+
+    --brand-secondary: 44 89% 58%;       /* Buttons/Highlights */
+    --brand-secondary-foreground: 240 44% 40%; /* Foreground on secondary */
+
+    --brand-neutral-strong: 225 8% 20%;    /* Text/Icons */
+    --brand-neutral-soft: 237 17% 80%;  /* Borders/Soft backgrounds */
     
     /* Semantic tokens based on Help Smart colors */
     --background: 0 0% 100%;          /* #FFFFFF - Main background */
@@ -27,11 +27,11 @@
     --popover: 0 0% 100%;
     --popover-foreground: 225 8% 20%;
 
-    --primary: 240 44% 40%;           /* Help Smart primary */
-    --primary-foreground: 0 0% 100%;
+    --primary: var(--brand-primary);
+    --primary-foreground: var(--brand-primary-foreground);
 
-    --secondary: 44 89% 58%;          /* Help Smart secondary */
-    --secondary-foreground: 240 44% 40%;
+    --secondary: var(--brand-secondary);
+    --secondary-foreground: var(--brand-secondary-foreground);
 
     --muted: 237 17% 95%;             /* Very light neutral */
     --muted-foreground: 225 8% 45%;
@@ -42,20 +42,20 @@
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 237 17% 80%;            /* Neutral light */
-    --input: 237 17% 80%;
-    --ring: 240 44% 40%;
+    --border: var(--brand-neutral-soft);            /* Neutral light */
+    --input: var(--brand-neutral-soft);
+    --ring: var(--brand-primary);
 
     --radius: 0.75rem;                /* Rounded buttons */
 
-    /* Help Smart specific gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--hs-primary)), hsl(240 44% 50%));
-    --gradient-secondary: linear-gradient(135deg, hsl(var(--hs-secondary)), hsl(44 89% 68%));
-    --gradient-hero: linear-gradient(135deg, hsl(var(--hs-primary)) 0%, hsl(var(--hs-secondary)) 100%);
-    
+    /* Brand gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--brand-primary)), hsl(240 44% 50%));
+    --gradient-secondary: linear-gradient(135deg, hsl(var(--brand-secondary)), hsl(44 89% 68%));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--brand-primary)) 0%, hsl(var(--brand-secondary)) 100%);
+
     /* Shadows with brand colors */
-    --shadow-primary: 0 4px 20px hsl(var(--hs-primary) / 0.2);
-    --shadow-secondary: 0 4px 20px hsl(var(--hs-secondary) / 0.2);
+    --shadow-primary: 0 4px 20px hsl(var(--brand-primary) / 0.2);
+    --shadow-secondary: 0 4px 20px hsl(var(--brand-secondary) / 0.2);
     --shadow-soft: 0 2px 10px hsl(225 8% 20% / 0.1);
 
     /* Animations */
@@ -73,17 +73,17 @@
     --popover: 225 8% 10%;
     --popover-foreground: 0 0% 95%;
     
-    /* Keep primary blue for headers in dark mode */
-    --primary: 240 44% 40%;        /* Keep blue for headers */
-    --primary-foreground: 0 0% 100%;
-    
-    --secondary: 44 89% 58%;       /* Keep secondary yellow */
+    /* Keep brand colors consistent in dark mode */
+    --primary: var(--brand-primary);
+    --primary-foreground: var(--brand-primary-foreground);
+
+    --secondary: var(--brand-secondary);
     --secondary-foreground: 225 8% 8%;
     
     --muted: 225 8% 15%;
     --muted-foreground: 237 17% 70%;
     
-    --accent: 44 89% 58%;
+    --accent: var(--brand-secondary);
     --accent-foreground: 225 8% 8%;
     
     --destructive: 0 84% 60%;
@@ -91,7 +91,7 @@
     
     --border: 225 8% 20%;
     --input: 225 8% 20%;
-    --ring: 240 44% 40%;
+    --ring: var(--brand-primary);
   }
 }
 

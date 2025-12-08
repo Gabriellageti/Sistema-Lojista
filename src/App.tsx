@@ -4,6 +4,8 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "next-themes";
+import { BrandingProvider } from "@/contexts/BrandingProvider";
+import { defaultBrandingConfig } from "@/config/branding";
 import Header from "@/components/layout/Header";
 import FloatingActions from "@/components/ui/floating-actions";
 import ProtectedRoute from "@/components/ProtectedRoute";
@@ -26,42 +28,44 @@ const App = () => (
   <QueryClientProvider client={queryClient}>
     <BrowserRouter>
       <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
-        <TooltipProvider>
-          <Routes>
-            <Route path="/auth" element={<Auth />} />
-            {import.meta.env.DEV && (
-              <Route path="/dev/transactions-preview" element={<TransactionsPreview />} />
-            )}
-            <Route
-              path="/*"
-              element={
-                <ProtectedRoute>
-                  <div className="min-h-screen bg-background">
-                    <Header />
-                    <main>
-                      <Routes>
-                        <Route path="/" element={<Dashboard />} />
-                        <Route path="/transactions" element={<Transactions />} />
-                        <Route path="/orders" element={<Orders />} />
-                        <Route path="/credit-sales" element={<CreditSales />} />
-                        <Route path="/cash-closures" element={<CashClosures />} />
-                        <Route path="/trash" element={<Trash />} />
-                        <Route path="/reports" element={<Reports />} />
-                        <Route path="/settings" element={<Settings />} />
-                        <Route path="/cash-closing" element={<CashClosing />} />
-                        {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-                        <Route path="*" element={<NotFound />} />
-                      </Routes>
-                    </main>
-                    <FloatingActions />
-                  </div>
-                </ProtectedRoute>
-              }
-            />
-          </Routes>
-          <Toaster />
-          <Sonner />
-        </TooltipProvider>
+        <BrandingProvider config={defaultBrandingConfig}>
+          <TooltipProvider>
+            <Routes>
+              <Route path="/auth" element={<Auth />} />
+              {import.meta.env.DEV && (
+                <Route path="/dev/transactions-preview" element={<TransactionsPreview />} />
+              )}
+              <Route
+                path="/*"
+                element={
+                  <ProtectedRoute>
+                    <div className="min-h-screen bg-background">
+                      <Header />
+                      <main>
+                        <Routes>
+                          <Route path="/" element={<Dashboard />} />
+                          <Route path="/transactions" element={<Transactions />} />
+                          <Route path="/orders" element={<Orders />} />
+                          <Route path="/credit-sales" element={<CreditSales />} />
+                          <Route path="/cash-closures" element={<CashClosures />} />
+                          <Route path="/trash" element={<Trash />} />
+                          <Route path="/reports" element={<Reports />} />
+                          <Route path="/settings" element={<Settings />} />
+                          <Route path="/cash-closing" element={<CashClosing />} />
+                          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+                          <Route path="*" element={<NotFound />} />
+                        </Routes>
+                      </main>
+                      <FloatingActions />
+                    </div>
+                  </ProtectedRoute>
+                }
+              />
+            </Routes>
+            <Toaster />
+            <Sonner />
+          </TooltipProvider>
+        </BrandingProvider>
       </ThemeProvider>
     </BrowserRouter>
   </QueryClientProvider>
