@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Help Smart Design System - All colors MUST be HSL */
+
+@layer base {
+  :root {
+    /* Help Smart Brand Colors */
+    --hs-primary: 240 44% 40%;        /* #3E3F93 - Headers/CTA */
+    --hs-primary-foreground: 0 0% 100%; /* White text on primary */
+    
+    --hs-secondary: 44 89% 58%;       /* #EFB631 - Buttons/Highlights */
+    --hs-secondary-foreground: 240 44% 40%; /* Primary text on secondary */
+    
+    --hs-neutral-dark: 225 8% 20%;    /* #313236 - Text/Icons */
+    --hs-neutral-light: 237 17% 80%;  /* #CBCCDD - Borders/Soft backgrounds */
+    
+    /* Semantic tokens based on Help Smart colors */
+    --background: 0 0% 100%;          /* #FFFFFF - Main background */
+    --foreground: 225 8% 20%;         /* Neutral dark for text */
+
+    --card: 0 0% 100%;
+    --card-foreground: 225 8% 20%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 225 8% 20%;
+
+    --primary: 240 44% 40%;           /* Help Smart primary */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 44 89% 58%;          /* Help Smart secondary */
+    --secondary-foreground: 240 44% 40%;
+
+    --muted: 237 17% 95%;             /* Very light neutral */
+    --muted-foreground: 225 8% 45%;
+
+    --accent: 44 89% 58%;
+    --accent-foreground: 240 44% 40%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 237 17% 80%;            /* Neutral light */
+    --input: 237 17% 80%;
+    --ring: 240 44% 40%;
+
+    --radius: 0.75rem;                /* Rounded buttons */
+
+    /* Help Smart specific gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--hs-primary)), hsl(240 44% 50%));
+    --gradient-secondary: linear-gradient(135deg, hsl(var(--hs-secondary)), hsl(44 89% 68%));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--hs-primary)) 0%, hsl(var(--hs-secondary)) 100%);
+    
+    /* Shadows with brand colors */
+    --shadow-primary: 0 4px 20px hsl(var(--hs-primary) / 0.2);
+    --shadow-secondary: 0 4px 20px hsl(var(--hs-secondary) / 0.2);
+    --shadow-soft: 0 2px 10px hsl(225 8% 20% / 0.1);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-fast: all 0.15s ease-out;
+  }
+
+  .dark {
+    --background: 225 8% 8%;
+    --foreground: 0 0% 95%;
+    
+    --card: 225 8% 10%;
+    --card-foreground: 0 0% 95%;
+    
+    --popover: 225 8% 10%;
+    --popover-foreground: 0 0% 95%;
+    
+    /* Keep primary blue for headers in dark mode */
+    --primary: 240 44% 40%;        /* Keep blue for headers */
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 44 89% 58%;       /* Keep secondary yellow */
+    --secondary-foreground: 225 8% 8%;
+    
+    --muted: 225 8% 15%;
+    --muted-foreground: 237 17% 70%;
+    
+    --accent: 44 89% 58%;
+    --accent-foreground: 225 8% 8%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 225 8% 20%;
+    --input: 225 8% 20%;
+    --ring: 240 44% 40%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-inter;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Touch-friendly minimum sizes */
+  button, .btn, input[type="button"], input[type="submit"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Help Smart specific component styles */
+  .hs-header {
+    @apply bg-gradient-to-r from-primary/90 to-primary text-primary-foreground;
+    box-shadow: var(--shadow-primary);
+  }
+  
+  .hs-btn-primary {
+    @apply bg-gradient-to-r from-primary to-primary/90 text-primary-foreground;
+    @apply hover:from-primary/90 hover:to-primary;
+    @apply transition-all duration-300 ease-out;
+    box-shadow: var(--shadow-primary);
+  }
+  
+  .hs-btn-secondary {
+    @apply bg-gradient-to-r from-secondary to-secondary/90 text-secondary-foreground;
+    @apply hover:from-secondary/90 hover:to-secondary;
+    @apply transition-all duration-300 ease-out;
+    box-shadow: var(--shadow-secondary);
+  }
+  
+  .hs-card {
+    @apply bg-card border border-border rounded-lg;
+    box-shadow: var(--shadow-soft);
+    @apply transition-all duration-200 ease-out;
+  }
+  
+  .hs-card:hover {
+    @apply scale-[1.02];
+    box-shadow: var(--shadow-primary);
+  }
+
+  /* Mobile-first responsive utilities */
+  .touch-action {
+    touch-action: manipulation;
+  }
+  
+  /* Dark theme specific styles for text readability */
+  .dark h1, 
+  .dark h2, 
+  .dark h3, 
+  .dark .text-primary {
+    @apply text-white;
+  }
+  
+  .dark .hs-header {
+    @apply bg-gradient-to-r from-primary to-primary/90;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
