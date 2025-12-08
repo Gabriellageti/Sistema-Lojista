@@ -64,6 +64,10 @@ This project is built with:
 
 Simply open [Lovable](https://lovable.dev/projects/95e50825-ca6c-4075-bca6-a23f19635c03) and click on Share -> Publish.
 
+## Supabase disabled
+
+The Supabase client has been intentionally disabled in this fork to avoid any external connections and prevent accidental impact on the original Help Smart environment. All calls to the client return explicit errors indicating that Supabase is unavailable.
+
 ## Can I connect a custom domain to my Lovable project?
 
 Yes, you can!
