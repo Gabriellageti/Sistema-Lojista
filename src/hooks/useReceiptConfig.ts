@@ -2,24 +2,13 @@ import { useState, useEffect } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { ReceiptConfig } from '@/types';
 import { useToast } from '@/hooks/use-toast';
+import { defaultReceiptConfig } from '@/config/defaults';
 
 export const useReceiptConfig = () => {
   const [config, setConfig] = useState<ReceiptConfig | null>(null);
   const [configId, setConfigId] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const { toast } = useToast();
-
-  // Default config
-  const defaultConfig: ReceiptConfig = {
-    nomeLoja: 'Help Smart',
-    enderecoLoja: '',
-    telefoneLoja: '',
-    cnpjLoja: '57.550.258/0001-89',
-    instagramLoja: '',
-    larguraBobina: 80 as const,
-    mensagemAgradecimento: 'Obrigado pela preferência!',
-    politicaGarantia: 'Produtos com defeito devem ser apresentados com nota fiscal e embalagem original no prazo de 90 dias.',
-  };
 
   // Load config
   const loadConfig = async () => {
@@ -37,21 +26,21 @@ export const useReceiptConfig = () => {
           nomeLoja: data.nome_loja,
           enderecoLoja: data.endereco_loja || '',
           telefoneLoja: data.telefone_loja || '',
-          cnpjLoja: data.cnpj_loja || '57.550.258/0001-89',
+          cnpjLoja: data.cnpj_loja || defaultReceiptConfig.cnpjLoja,
           instagramLoja: data.instagram_loja || '',
           larguraBobina: data.largura_bobina as 58 | 80 | 85,
-          mensagemAgradecimento: data.mensagem_agradecimento || 'Obrigado pela preferência!',
-          politicaGarantia: data.politica_garantia || 'Produtos com defeito devem ser apresentados com nota fiscal e embalagem original no prazo de 90 dias.',
+          mensagemAgradecimento: data.mensagem_agradecimento || defaultReceiptConfig.mensagemAgradecimento,
+          politicaGarantia: data.politica_garantia || defaultReceiptConfig.politicaGarantia,
         };
         setConfig(mappedConfig);
         setConfigId(data.id);
       } else {
         // Create default config if none exists
-        await saveReceiptConfig(defaultConfig);
+        await saveReceiptConfig(defaultReceiptConfig);
       }
     } catch (error) {
       console.error('Error loading receipt config:', error);
-      setConfig(defaultConfig);
+      setConfig(defaultReceiptConfig);
       toast({
         title: "Erro",
         description: "Erro ao carregar configuração de recibo, usando padrões",
@@ -69,7 +58,7 @@ export const useReceiptConfig = () => {
         nome_loja: newConfig.nomeLoja,
         endereco_loja: newConfig.enderecoLoja || null,
         telefone_loja: newConfig.telefoneLoja || null,
-        cnpj_loja: newConfig.cnpjLoja || '57.550.258/0001-89',
+        cnpj_loja: newConfig.cnpjLoja || defaultReceiptConfig.cnpjLoja,
         instagram_loja: newConfig.instagramLoja || null,
         largura_bobina: newConfig.larguraBobina,
         mensagem_agradecimento: newConfig.mensagemAgradecimento || null,
@@ -93,11 +82,11 @@ export const useReceiptConfig = () => {
           nomeLoja: data.nome_loja,
           enderecoLoja: data.endereco_loja || '',
           telefoneLoja: data.telefone_loja || '',
-          cnpjLoja: data.cnpj_loja || '57.550.258/0001-89',
+          cnpjLoja: data.cnpj_loja || defaultReceiptConfig.cnpjLoja,
           instagramLoja: data.instagram_loja || '',
           larguraBobina: data.largura_bobina as 58 | 80 | 85,
-          mensagemAgradecimento: data.mensagem_agradecimento || 'Obrigado pela preferência!',
-          politicaGarantia: data.politica_garantia || 'Produtos com defeito devem ser apresentados com nota fiscal e embalagem original no prazo de 90 dias.',
+          mensagemAgradecimento: data.mensagem_agradecimento || defaultReceiptConfig.mensagemAgradecimento,
+          politicaGarantia: data.politica_garantia || defaultReceiptConfig.politicaGarantia,
         };
 
         setConfig(mappedConfig);
@@ -116,14 +105,14 @@ export const useReceiptConfig = () => {
   };
 
   // Get config
-  const getReceiptConfig = () => config || defaultConfig;
+  const getReceiptConfig = () => config || defaultReceiptConfig;
 
   useEffect(() => {
     loadConfig();
   }, []);
 
   return {
-    config: config || defaultConfig,
+    config: config || defaultReceiptConfig,
     loading,
     saveReceiptConfig,
     getReceiptConfig,
