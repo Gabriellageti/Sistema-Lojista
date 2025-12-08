@@ -1,10 +1,11 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { useBranding } from '@/contexts/BrandingProvider';
 
 import { toast } from 'sonner';
 import { Loader2 } from 'lucide-react';
@@ -14,6 +15,13 @@ const Auth = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const branding = useBranding();
+  const [logoError, setLogoError] = useState(false);
+
+  const logoSrc = useMemo(() => {
+    if (!logoError && branding.logoUrl) return branding.logoUrl;
+    return '/placeholder.svg';
+  }, [branding.logoUrl, logoError]);
   
 
   const handleLogin = async (e: React.FormEvent) => {
@@ -53,14 +61,15 @@ const Auth = () => {
         {/* Logo e Título */}
         <div className="text-center mb-8">
           <div className="flex justify-center mb-4">
-            <img 
-              src="/lovable-uploads/befabe7e-2681-4b08-abd2-02734a911a8f.png" 
-              alt="Help Smart Logo" 
+            <img
+              src={logoSrc}
+              alt={`${branding.storeName} logo`}
               className="w-24 h-24 rounded-full bg-white/10 p-2 shadow-lg"
+              onError={() => setLogoError(true)}
             />
           </div>
-          <h1 className="text-4xl font-bold text-white mb-2">Help Smart</h1>
-          <p className="text-white/90 text-lg">Assistência Técnica</p>
+          <h1 className="text-4xl font-bold text-white mb-2">{branding.storeName}</h1>
+          <p className="text-white/90 text-lg">{branding.slogan}</p>
         </div>
 
         <Card className="shadow-2xl">

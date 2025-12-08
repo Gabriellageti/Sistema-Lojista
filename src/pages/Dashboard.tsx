@@ -50,6 +50,7 @@ import {
 } from 'date-fns';
 import { useToast } from '@/hooks/use-toast';
 import { filterSettledTransactions } from '@/utils/creditSalesUtils';
+import { useBranding } from '@/contexts/BrandingProvider';
 
 const PAYMENT_METHOD_OPTIONS: { value: PaymentMethod; label: string }[] = [
   { value: 'dinheiro', label: 'Dinheiro' },
@@ -120,6 +121,7 @@ const Dashboard = () => {
   } = useCreditSales();
   const navigate = useNavigate();
   const { toast } = useToast();
+  const branding = useBranding();
 
   const settledTransactions = useMemo(
     () => filterSettledTransactions(transactions, creditSales),
@@ -461,10 +463,8 @@ const Dashboard = () => {
     <div className="container mx-auto px-2 sm:px-4 py-4 sm:py-6 space-y-4 sm:space-y-6">
       {/* Welcome Section */}
       <div className="text-center space-y-2">
-        <h1 className="text-2xl sm:text-3xl font-bold text-primary">Bem-vindo ao Help Smart</h1>
-        <p className="text-sm sm:text-base text-muted-foreground">
-          Sistema de vendas e ordens de serviço
-        </p>
+        <h1 className="text-2xl sm:text-3xl font-bold text-primary">Bem-vindo ao {branding.storeName}</h1>
+        <p className="text-sm sm:text-base text-muted-foreground">{branding.slogan}</p>
       </div>
 
       {/* Cash Session Manager */}
