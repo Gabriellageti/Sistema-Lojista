@@ -8,55 +8,55 @@
 @layer base {
   :root {
     /* Sistema Lojista Brand Colors */
-    --hs-primary: 240 44% 40%;        /* #3E3F93 - Headers/CTA */
-    --hs-primary-foreground: 0 0% 100%; /* White text on primary */
-    
-    --hs-secondary: 44 89% 58%;       /* #EFB631 - Buttons/Highlights */
-    --hs-secondary-foreground: 240 44% 40%; /* Primary text on secondary */
-    
-    --hs-neutral-dark: 225 8% 20%;    /* #313236 - Text/Icons */
-    --hs-neutral-light: 237 17% 80%;  /* #CBCCDD - Borders/Soft backgrounds */
-    
+    --hs-primary: 0 0% 0%;            /* Preto profundo */
+    --hs-primary-foreground: 48 92% 55%; /* Amarelo vibrante para contrastar o preto */
+
+    --hs-secondary: 48 92% 55%;       /* Amarelo destacado */
+    --hs-secondary-foreground: 0 0% 6%; /* Preto suave para texto em áreas amarelas */
+
+    --hs-neutral-dark: 0 0% 90%;      /* Textos claros em fundos escuros */
+    --hs-neutral-light: 0 0% 30%;     /* Bordas e superfícies sutis */
+
     /* Semantic tokens based on Sistema Lojista colors */
-    --background: 0 0% 100%;          /* #FFFFFF - Main background */
-    --foreground: 225 8% 20%;         /* Neutral dark for text */
+    --background: 0 0% 6%;            /* Fundo quase preto */
+    --foreground: 0 0% 92%;           /* Texto claro padrão */
 
-    --card: 0 0% 100%;
-    --card-foreground: 225 8% 20%;
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 92%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 225 8% 20%;
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 92%;
 
-    --primary: 240 44% 40%;           /* Sistema Lojista primary */
-    --primary-foreground: 0 0% 100%;
+    --primary: 0 0% 0%;               /* Preto para cabeçalhos e áreas principais */
+    --primary-foreground: 48 92% 55%;
 
-    --secondary: 44 89% 58%;          /* Sistema Lojista secondary */
-    --secondary-foreground: 240 44% 40%;
+    --secondary: 48 92% 55%;          /* Amarelo para destaques e botões */
+    --secondary-foreground: 0 0% 6%;
 
-    --muted: 237 17% 95%;             /* Very light neutral */
-    --muted-foreground: 225 8% 45%;
+    --muted: 0 0% 16%;                /* Cinza escuro para superfícies de apoio */
+    --muted-foreground: 0 0% 72%;
 
-    --accent: 44 89% 58%;
-    --accent-foreground: 240 44% 40%;
+    --accent: 48 92% 55%;
+    --accent-foreground: 0 0% 6%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 237 17% 80%;            /* Neutral light */
-    --input: 237 17% 80%;
-    --ring: 240 44% 40%;
+    --border: 0 0% 20%;               /* Bordas discretas em fundo escuro */
+    --input: 0 0% 20%;
+    --ring: 48 92% 55%;
 
     --radius: 0.75rem;                /* Rounded buttons */
 
     /* Sistema Lojista specific gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--hs-primary)), hsl(240 44% 50%));
-    --gradient-secondary: linear-gradient(135deg, hsl(var(--hs-secondary)), hsl(44 89% 68%));
+    --gradient-primary: linear-gradient(135deg, hsl(var(--hs-primary)), hsl(0 0% 16%));
+    --gradient-secondary: linear-gradient(135deg, hsl(var(--hs-secondary)), hsl(48 92% 65%));
     --gradient-hero: linear-gradient(135deg, hsl(var(--hs-primary)) 0%, hsl(var(--hs-secondary)) 100%);
-    
+
     /* Shadows with brand colors */
-    --shadow-primary: 0 4px 20px hsl(var(--hs-primary) / 0.2);
-    --shadow-secondary: 0 4px 20px hsl(var(--hs-secondary) / 0.2);
-    --shadow-soft: 0 2px 10px hsl(225 8% 20% / 0.1);
+    --shadow-primary: 0 4px 20px hsl(48 92% 55% / 0.25);
+    --shadow-secondary: 0 4px 20px hsl(48 92% 55% / 0.2);
+    --shadow-soft: 0 2px 10px hsl(0 0% 0% / 0.3);
 
     /* Animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -64,34 +64,33 @@
   }
 
   .dark {
-    --background: 225 8% 8%;
-    --foreground: 0 0% 95%;
-    
-    --card: 225 8% 10%;
-    --card-foreground: 0 0% 95%;
-    
-    --popover: 225 8% 10%;
-    --popover-foreground: 0 0% 95%;
-    
-    /* Keep primary blue for headers in dark mode */
-    --primary: 240 44% 40%;        /* Keep blue for headers */
-    --primary-foreground: 0 0% 100%;
-    
-    --secondary: 44 89% 58%;       /* Keep secondary yellow */
-    --secondary-foreground: 225 8% 8%;
-    
-    --muted: 225 8% 15%;
-    --muted-foreground: 237 17% 70%;
-    
-    --accent: 44 89% 58%;
-    --accent-foreground: 225 8% 8%;
-    
+    --background: 0 0% 4%;
+    --foreground: 0 0% 92%;
+
+    --card: 0 0% 8%;
+    --card-foreground: 0 0% 92%;
+
+    --popover: 0 0% 8%;
+    --popover-foreground: 0 0% 92%;
+
+    --primary: 0 0% 0%;
+    --primary-foreground: 48 92% 55%;
+
+    --secondary: 48 92% 55%;
+    --secondary-foreground: 0 0% 6%;
+
+    --muted: 0 0% 14%;
+    --muted-foreground: 0 0% 68%;
+
+    --accent: 48 92% 55%;
+    --accent-foreground: 0 0% 6%;
+
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
-    
-    --border: 225 8% 20%;
-    --input: 225 8% 20%;
-    --ring: 240 44% 40%;
+
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
+    --ring: 48 92% 55%;
   }
 }
 
