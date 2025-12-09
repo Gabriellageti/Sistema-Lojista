@@ -1,0 +1,9 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Sistema Lojista logo">
+  <title>Sistema Lojista</title>
+  <circle cx="512" cy="512" r="470" fill="#000000"/>
+  <circle cx="512" cy="512" r="430" fill="none" stroke="#f6b631" stroke-width="84"/>
+  <circle cx="512" cy="512" r="370" fill="#000000"/>
+  <text x="512" y="470" text-anchor="middle" font-family="'Inter','Arial',sans-serif" font-weight="800" font-size="300" fill="#f6b631" dominant-baseline="middle">SL</text>
+  <text x="512" y="660" text-anchor="middle" font-family="'Inter','Arial',sans-serif" font-weight="700" font-size="120" fill="#f6b631" letter-spacing="2" dominant-baseline="middle">SISTEMA</text>
+  <text x="512" y="780" text-anchor="middle" font-family="'Inter','Arial',sans-serif" font-weight="700" font-size="120" fill="#f6b631" letter-spacing="2" dominant-baseline="middle">LOJISTA</text>
+</svg>

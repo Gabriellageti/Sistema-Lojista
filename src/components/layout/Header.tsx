@@ -35,14 +35,14 @@ const Header = () => {
       <div className="flex items-center justify-between max-w-7xl mx-auto">
         {/* Logo and Title */}
         <div className="flex items-center gap-3">
-          <img 
-            src="/lovable-uploads/befabe7e-2681-4b08-abd2-02734a911a8f.png" 
-            alt="Sistema Lojista Logo" 
-            className="w-10 h-10 rounded-full bg-white/10 p-1"
+          <img
+            src="/logo.svg"
+            alt="Sistema Lojista Logo"
+            className="w-12 h-12 drop-shadow"
           />
           <div>
-            <h1 className="text-lg font-bold">Sistema Lojista</h1>
-            <p className="text-xs opacity-90">Assistência Técnica</p>
+            <h1 className="text-lg font-bold text-primary-foreground">Sistema Lojista</h1>
+            <p className="text-xs text-primary-foreground/80">Assistência Técnica</p>
           </div>
         </div>
 
@@ -58,7 +58,7 @@ const Header = () => {
                 variant={isActive ? "secondary" : "ghost"}
                 size="sm"
                 onClick={() => handleNavigation(item.path)}
-                className={`gap-2 ${isActive ? 'text-secondary-foreground' : 'text-white hover:text-secondary-foreground'}`}
+                className={`gap-2 ${isActive ? 'text-secondary-foreground' : 'text-primary-foreground hover:text-secondary-foreground'}`}
               >
                 <Icon className="w-4 h-4" />
                 {item.label}
@@ -69,7 +69,7 @@ const Header = () => {
             variant="ghost"
             size="sm"
             onClick={signOut}
-            className="gap-2 text-white hover:text-destructive hover:bg-destructive/10"
+            className="gap-2 text-primary-foreground hover:text-destructive hover:bg-destructive/10"
           >
             <LogOut className="w-4 h-4" />
             Sair
@@ -79,25 +79,25 @@ const Header = () => {
         {/* Mobile Menu */}
         <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
           <SheetTrigger asChild>
-            <Button 
-              variant="ghost" 
-              size="icon" 
-              className="md:hidden text-white hover:bg-white/10"
-            >
-              <Menu className="w-6 h-6" />
-            </Button>
+              <Button
+                variant="ghost"
+                size="icon"
+                className="md:hidden text-primary-foreground hover:bg-primary-foreground/10"
+              >
+                <Menu className="w-6 h-6" />
+              </Button>
           </SheetTrigger>
           <SheetContent side="right" className="w-72">
             <div className="flex flex-col gap-4 mt-8">
               <div className="flex items-center gap-3 pb-4 border-b">
-                <img 
-                  src="/lovable-uploads/befabe7e-2681-4b08-abd2-02734a911a8f.png" 
-                  alt="Sistema Lojista Logo" 
-                  className="w-12 h-12 rounded-full"
+                <img
+                  src="/logo.svg"
+                  alt="Sistema Lojista Logo"
+                  className="w-14 h-14 drop-shadow"
                 />
                 <div>
-                  <h2 className="font-bold text-lg">Sistema Lojista</h2>
-                  <p className="text-sm text-muted-foreground">Assistência Técnica</p>
+                  <h2 className="font-bold text-lg text-primary-foreground">Sistema Lojista</h2>
+                  <p className="text-sm text-primary-foreground/80">Assistência Técnica</p>
                 </div>
               </div>
               
@@ -137,8 +137,8 @@ const Header = () => {
 
       {/* Page Title for Mobile */}
       {currentPage && (
-        <div className="md:hidden mt-2 pt-2 border-t border-white/20">
-          <div className="flex items-center gap-2 text-white">
+        <div className="md:hidden mt-2 pt-2 border-t border-primary-foreground/20">
+          <div className="flex items-center gap-2 text-primary-foreground">
             <currentPage.icon className="w-4 h-4" />
             <span className="font-medium">{currentPage.label}</span>
           </div>
