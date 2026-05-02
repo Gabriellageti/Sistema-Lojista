@@ -1,77 +1,38 @@
-# Welcome to your Lovable project
+# Sistema Lojista
 
-## Project info
+Sistema web para apoio a operacoes de loja, com foco em gestao comercial, organizacao de processos e acompanhamento de informacoes essenciais do negocio.
 
-**URL**: https://lovable.dev/projects/95e50825-ca6c-4075-bca6-a23f19635c03
+## Status
 
-## How can I edit this code?
+Projeto de portfolio ativo. Repositorio publico e indicado para destaque no perfil.
 
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/95e50825-ca6c-4075-bca6-a23f19635c03) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
+## Tecnologias
 
 - Vite
 - TypeScript
 - React
-- shadcn-ui
+- shadcn/ui
 - Tailwind CSS
 
-## How can I deploy this project?
+## Objetivo
 
-Simply open [Lovable](https://lovable.dev/projects/95e50825-ca6c-4075-bca6-a23f19635c03) and click on Share -> Publish.
+Centralizar uma experiencia de gestao para lojistas, ajudando no acompanhamento de rotinas comerciais e operacionais em uma interface web moderna.
 
-## Supabase disabled
+## Como rodar localmente
 
-The Supabase client has been intentionally disabled in this fork to avoid any external connections and prevent accidental impact on the original Sistema Lojista environment. All calls to the client return explicit errors indicating that Supabase is unavailable.
+```sh
+git clone https://github.com/Gabriellageti/Sistema-Lojista.git
+cd Sistema-Lojista
+npm install
+npm run dev
+```
 
-## Can I connect a custom domain to my Lovable project?
+## Organizacao sugerida
 
-Yes, you can!
+- Categoria: portfolio, gestao, sistemas
+- Visibilidade: publico
+- Prioridade no perfil: alta
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## Observacao tecnica
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+O cliente Supabase foi intencionalmente desativado neste fork para evitar conexoes externas e impactos acidentais no ambiente original. Chamadas ao cliente retornam erros explicitos informando que o Supabase esta indisponivel.
